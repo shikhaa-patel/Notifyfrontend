@@ -3,6 +3,7 @@ import axios from 'axios'
 import { useDispatch } from 'react-redux'
 import { useNavigate} from 'react-router-dom'
 import { authActions } from "../store";
+import { serverURL } from '../baseurl';
 
 function Auth() {
 
@@ -26,7 +27,7 @@ function Auth() {
   const [ isSignup , setisSignup] = useState(false)
 
   const sendRequest = async (type="login")=>{
-    const res = await axios.post(`http://localhost:5000/api/user/${type}`,{
+    const res = await axios.post(`${serverURL}/api/user/${type}`,{
       name:inputs.name,
       email:inputs.email,
       password:inputs.password

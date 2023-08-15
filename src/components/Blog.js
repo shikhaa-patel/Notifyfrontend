@@ -1,6 +1,7 @@
 import React from 'react'
 import axios from "axios";
 import { useNavigate } from 'react-router-dom'
+import { serverURL } from '../baseurl';
 
 
 export default function Blog({ title, description, userName, imageURL, isUser, id }) {
@@ -12,7 +13,7 @@ export default function Blog({ title, description, userName, imageURL, isUser, i
 
   const deleteRequest = async () => {
     const res = await axios
-      .delete(`http://localhost:5000/api/blog/${id}`)
+      .delete(`${serverURL}/api/blog/${id}`)
       .catch((err) => console.log(err));
     const data = await res.data;
     return data;

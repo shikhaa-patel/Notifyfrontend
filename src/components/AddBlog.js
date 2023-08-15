@@ -3,6 +3,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import addNotification from "react-push-notification";
 import logo from "../images/juet.png";
+import { serverURL } from "../baseurl";
 
 function AddBlog() {
   const navigate = useNavigate();
@@ -15,7 +16,7 @@ function AddBlog() {
 
   const sendRequest = async () => {
     const res = await axios
-      .post("http://localhost:5000/api/blog/add", {
+      .post(`${serverURL}/api/blog/add`, {
         title: inputs.title,
         description: inputs.description,
         // image: inputs.imageURL,
